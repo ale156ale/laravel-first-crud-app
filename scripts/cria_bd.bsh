@@ -1,0 +1,14 @@
+#!/bin/bash
+#mysqladmin --user=root password "senha"
+mysql -uroot -p --execute 'create user "projeto"@"localhost" identified by "projeto";'
+mysql -uroot -p --execute 'create database projeto;'
+mysql -uroot -p --execute 'grant all privileges on projeto.* to "projeto"@"localhost";flush privileges;'
+mysql -uroot -p --execute 'use projeto; create table Contacts(
+	contactsId int NOT NULL AUTO_INCREMENT,
+	first_name varchar(255),
+	last_name varchar(255),
+	email varchar(255),
+	city varchar(255),
+	country varchar(255),
+	job_title varchar(255),
+	PRIMARY KEY (contactsId));'
