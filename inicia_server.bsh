@@ -1,0 +1,4 @@
+#!/bin/bash
+$HOME/scripts/comp_descomp_projeto.bsh compacta
+sudo /etc/init.d/mysql restart
+sudo php artisan serve --port=80
