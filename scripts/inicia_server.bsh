@@ -6,7 +6,6 @@ else
     sed -i 's/DB_DATABASE=laravel/DB_DATABASE=projeto/g' .env
     sed -i 's/DB_USERNAME=root/DB_USERNAME=projeto/g' .env
     sed -i 's/DB_PASSWORD=/DB_PASSWORD=projeto/g' .env
-    read
     php artisan key:generate
     php artisan migrate
 fi
