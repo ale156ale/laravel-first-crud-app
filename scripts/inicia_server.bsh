@@ -1,4 +1,10 @@
 #!/bin/bash
+if [ -f .sed ]; then
+    cp .env.example .env
+    seed -i 's/DB_DATABASE=laravel/DB_DATABASE=projeto/g' .sed
+    seed -i 's/DB_USERNAME=root/DB_USERNAME=projeto/g' .sed
+    seed -i 's/DB_PASSWORD=/DB_PASSWORD=projeto/g' .sed
+fi
 composer update
 php artisan key:generate
 $HOME/scripts/comp_descomp_projeto.bsh compacta
@@ -7,3 +13,4 @@ git commit -m "outro"
 git push -f origin master
 sudo /etc/init.d/mysql restart
 sudo php artisan serve --port=80
+

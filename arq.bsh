@@ -1,0 +1,3 @@
+seed -i 's/DB_DATABASE=laravel/DB_DATABASE=projeto/g' .sed
+seed -i 's/DB_USERNAME=root/DB_USERNAME=projeto/g' .sed
+seed -i 's/DB_PASSWORD=/DB_PASSWORD=projeto/g' .sed
