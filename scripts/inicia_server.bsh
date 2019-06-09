@@ -1,9 +1,12 @@
 #!/bin/bash
-if [ -f .sed ]; then
+if [ -f "$HOME/Laravel-first-crud-app/.sed" ]; then
+    echo ".env existe ... iniciando ..."
+else    
     cp .env.example .env
-    seed -i 's/DB_DATABASE=laravel/DB_DATABASE=projeto/g' .sed
-    seed -i 's/DB_USERNAME=root/DB_USERNAME=projeto/g' .sed
-    seed -i 's/DB_PASSWORD=/DB_PASSWORD=projeto/g' .sed
+    sed -i 's/DB_DATABASE=laravel/DB_DATABASE=projeto/g' .env
+    sed -i 's/DB_USERNAME=root/DB_USERNAME=projeto/g' .env
+    sed -i 's/DB_PASSWORD=/DB_PASSWORD=projeto/g' .env
+    read
     php artisan key:generate
     php artisan migrate
 fi
