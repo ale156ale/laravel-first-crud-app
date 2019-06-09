@@ -5,6 +5,7 @@ if [ -f .sed ]; then
     seed -i 's/DB_USERNAME=root/DB_USERNAME=projeto/g' .sed
     seed -i 's/DB_PASSWORD=/DB_PASSWORD=projeto/g' .sed
     php artisan key:generate
+    php artisan migrate
 fi
 composer update
 php artisan key:generate
